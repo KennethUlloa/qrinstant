@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import QRCodeStyling from "qr-code-styling";
 import { Download, QrCode, Trash } from "lucide-react";
 
 const MAX_SIZE = 1048576;
@@ -14,18 +13,23 @@ export default function QRCodeGenerator() {
   const qrCodeRef = useRef(null);
 
   useEffect(() => {
-    qrCodeRef.current = new QRCodeStyling({
-      width: 300,
-      height: 300,
-      type: "svg",
-      margin: 10,
-      dotsOptions: { color: "#000", type: "rounded" },
-      backgroundOptions: { color: "#fff" },
-      imageOptions: { crossOrigin: "anonymous", margin: 10 },
-    });
-    if (ref.current) {
-      qrCodeRef.current.append(ref.current);
+    async function load() {
+      const QRCodeStyling = (await import("qr-code-styling")).default;
+      qrCodeRef.current = new QRCodeStyling({
+        width: 300,
+        height: 300,
+        type: "svg",
+        margin: 10,
+        dotsOptions: { color: "#000", type: "rounded" },
+        backgroundOptions: { color: "#fff" },
+        imageOptions: { crossOrigin: "anonymous", margin: 10 },
+      });
+      if (ref.current) {
+        qrCodeRef.current.append(ref.current);
+      }
     }
+
+    load();
   }, []);
 
   const handleGenerate = () => {
