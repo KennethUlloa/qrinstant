@@ -1,0 +1,28 @@
+---
+import QRCodeGenerator from "./QRCodeGenerator";
+
+// import QRCodeGenerator from "./QRCodeGenerator.jsx";
+---
+
+<section class="flex flex-col items-center text-center px-6 mt-12">
+  <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
+    Genera códigos QR al instante
+  </h2>
+
+  <p class="text-lg text-slate-300 max-w-xl mb-10">
+    Rápido, gratuito y sin necesidad de servidores. Genera tus códigos QR
+    directamente en tu navegador.
+  </p>
+</section>
+
+<main class="flex justify-center px-6">
+  <div
+    class="w-full max-w-lg
+      bg-white/10 backdrop-blur-xl
+      rounded-2xl shadow-2xl border border-white/10
+      p-6"
+  >
+    <h3 class="text-2xl font-semibold mb-4 text-center">Genera tu código QR</h3>
+    <QRCodeGenerator client:only />
+  </div>
+</main>

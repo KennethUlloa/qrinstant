@@ -1,0 +1,15 @@
+---
+import siteInfo from "../../metadata";
+---
+
+<footer class="py-6 text-center text-sm opacity-70">
+  <p>QR Instant — {new Date().getFullYear()} • Gratis y sin límite de uso</p>
+  <nav class="flex gap-2 justify-center pt-6">
+    <a class="px-3 hover:opacity-100" href={siteInfo.base + "/privacy"}
+      >Privacidad</a
+    >
+    <a class="px-3 hover:opacity-100" href={siteInfo.base + "/cookies"}
+      >Cookies</a
+    >
+  </nav>
+</footer>
